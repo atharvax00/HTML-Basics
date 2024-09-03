@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Advance</title>
+    <link rel="icon" href="/media/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/output.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <main class="bg-black h-full text-white px-9 pt-5" x-data="mainFunction()">
+        <div>
+            <h1 class="text-center">Best practices for HTML</h1>
+            <br>
+            <hr class="w-3/4 mx-auto">
+            <br>
+            <div class="gap-7 flex flex-col" data-aos="fade-up">
+                <div>
+                    <p>1. Do not use divs to create headers and footers – use semantic elements instead</p>
+                    <div class="flex gap-5 justify-around w-full">
+                        <img class="max-w-[500px] aspect-video object-cover w-full h-full object-left" src="./media/header-footer-donts.png" alt="header-footer-dont's" width="auto" height="auto">
+                        <img class="max-w-[500px] aspect-video object-cover object-left w-full h-full" src="./media/header-footer-dos.png" alt="header-footer-do's"  width="250" height="250">
+                    </div>
+                </div>
+                <div>
+                    <p>2. Do not skip heading levels in HTML</p>
+                    <div class="flex gap-5 justify-around w-full">
+                        <img class="max-w-[500px] w-full h-full aspect-video object-contain object-left" src="./media/heading-level-donts.png" alt="header-dont's" width="250" height="250">
+                        <img class="max-w-[500px] aspect-video w-full h-full object-contain object-left" src="./media/heading-level-dos.png" alt="header-do's"  width="250" height="250">
+                    </div>
+                </div>
+                <div>
+                    <p>3. Use the figure element to add captions to your images in HTML</p>
+                    <div class="flex gap-5 justify-around w-full">
+                        <img class="max-w-[500px] aspect-video object-contain w-full h-full object-left" src="./media/figure-donts.png" alt="figure-dont's" width="auto" height="auto">
+                        <img class="max-w-[500px] aspect-video object-contain w-full h-full object-left" src="./media/figure-dos.png" alt="figure-do's"  width="250" height="250">
+                    </div>
+                </div>
+                <div>
+                    <p>4. Don't place block-level element within inline elements</p>
+                    <div class="flex gap-5 justify-around w-full">
+                        <img class="max-w-[500px] aspect-video object-contain w-full h-full object-left" src="./media/block-donts.png" alt="figure-dont's" width="auto" height="auto">            
+                        <img class="max-w-[500px] aspect-video object-contain w-full h-full object-left" src="./media/block-dos.png" alt="figure-do's"  width="250" height="250">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full text-center min-h-[216px]" data-aos="fade-up">
+            <h1>How HTML Renders</h1>
+            <br>
+            <hr class="w-3/4 mx-auto">
+            <br>
+            <div class="flex justify-around min-h-36">
+                <div class="flex flex-col w-1/2">
+                    <div class="flex gap-5 items-center cursor-pointer justify-center" @click="dropDownOpen1 = !dropDownOpen1">
+                        <h2>Tokens</h2>
+                        <span 
+                            class="rotate-90 text-xl"
+                            x-transition:enter="transition-transform"
+                            x-transition:enter-start="rotate-90"
+                            x-transition:enter-end="rotate-[270deg]"
+                            x-transition:leave="transition-transform"
+                            x-transition:leave-start="rotate-[270deg]"
+                            x-transition:leave-end="rotate-90"
+                            :class="{ 'rotate-[270deg]': dropDownOpen1, 'rotate-90': !dropDownOpen1 }"
+                        >
+                            &#10093;
+                        </span>
+                    </div>
+                    <div 
+                        class="overflow-hidden"
+                        x-show="dropDownOpen1"
+                        x-transition:enter="transition-opacity"
+                        x-transition:enter-start="opacity-0 max-h-0"
+                        x-transition:enter-end="opacity-100 max-h-screen"
+                        x-transition:leave="transition-opacity"
+                        x-transition:leave-start="opacity-100 max-h-screen"
+                        x-transition:leave-end="opacity-0 max-h-0"
+                    >
+                        <p>Tag Token: &lt;p&gt;</p>
+                        <p>Tag Token: &lt;div&gt;</p>
+                        <p>Attriburte token: class="class-1"</p>
+                        <p>text token : Hello world</p>                        
+                    </div>
+                </div>
+                <div class="flex flex-col w-1/2">
+                    <div class="flex gap-5 cursor-pointer items-center justify-center" @click="dropDownOpen2 = !dropDownOpen2">
+                        <h2>Nodes</h2>
+                        <span class="text-xl"
+                                x-transition:enter="transition-transform"
+                                x-transition:enter-start="rotate-90"
+                                x-transition:enter-end="rotate-[270deg]"
+                                x-transition:leave="transition-transform"
+                                x-transition:leave-start="rotate-[270deg]"
+                                x-transition:leave-end="rotate-90"
+                                :class="{ 'rotate-[270deg]': dropDownOpen2, 'rotate-90': !dropDownOpen2 }"
+                        >
+                        &#10093;
+                        </span>
+                    </div>
+                    <div  
+                        class="overflow-hidden"
+                        x-show="dropDownOpen2"
+                        x-transition:enter="transition-opacity"
+                        x-transition:enter-start="opacity-0 max-h-0"
+                        x-transition:enter-end="opacity-100 max-h-screen"
+                        x-transition:leave="transition-opacity"
+                        x-transition:leave-start="opacity-100 max-h-screen"
+                        x-transition:leave-end="opacity-0 max-h-0"
+                    
+                    >
+                        <p>Element node: &lt;p&gt;</p>
+                        <p>Element node: &lt;div&gt;</p>
+                        <p>Attriburte node: class="class-1"</p>
+                        <p>Text Node : Hello world</p>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-aos="fade-up" class="min-h-[260px] pb-20">
+            <h1 class="text-center">Rendering Engines</h1>
+            <br>
+            <hr class="w-3/4 mx-auto">
+            <br>
+            <div class="flex w-full justify-around">
+                <figure>
+                    <img src="./media/icon-chromium-96.png" class="object-contain h-auto w-[150px]" alt="chromium" width="150" height="auto">
+                    <figcaption>Blink</figcaption>
+                </figure>
+                <figure>
+                    <img src="./media/Mozillagecko-logo.png" class="object-contain h-auto w-[150px]" alt="gecko" width="150" height="auto">
+                    <figcaption>Gecko</figcaption>
+                </figure>
+                <figure>
+                    <img src="./media/webkit.png" class="object-contain h-auto w-[150px]" alt="webkit" width="150" height="auto">
+                    <figcaption>Webkit</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center items-center pb-5" data-aos="fade-up">
+            <h1 class="text-center">Trees</h1>
+            <br>
+            <hr class="w-3/4 mx-auto">
+            <br>
+            <div class="flex gap-5 justify-around">
+                    <img src="./media/dom-tree.png" class="object-contain h-auto" alt="dom-tree" width="500" height="auto">
+                    <img src="./media/render-tree.png" class="object-contain h-auto" alt="render-tree" width="500" height="auto">
+            </div>
+            <h3>byte > Chatacters > Tokens > Node > DOM > Render tree > Layout > Paint </h3>
+        </div>
+        <h2></h2>
+    </main>
+</body>
+<script>
+    function mainFunction(){
+        return{
+            dropDownOpen1: false,
+            dropDownOpen2: false,
+        }
+    }
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</html>
+
